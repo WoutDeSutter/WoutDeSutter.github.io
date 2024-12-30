@@ -45,9 +45,10 @@
     --radius-3: 0.5rem; /* 8px */
 
     /* font sizes */
-    --font-size-meta: 0.625rem
+    --font-size-meta: 0.625rem;
     --font-size-s: 0.75rem;
     --font-size-m: 1rem;
+    --font-size-m-hover: 1.25rem;
     --font-size-l: 1.5rem;
 
     /* font weight */
@@ -55,13 +56,19 @@
     --font-weight-b: 700;
 
     @media (prefers-color-scheme: dark) {
-        body{
-            background-color: var(--color-brand-10);
-        }
+        --color-text: var(--color-brand-100);
+        --color-border: var(--color-gray-8);
+
+        --background-1: var(--color-gray-10);
+        --background-2: var(--color-gray-8);
+
     }
 
     @media (prefers-color-scheme: light) {
-        
+        --color-text: var(--color-gray-10);
+        --color-border: var(--color-gray-1)
+
+        --background-1: var(--color-gray-0);
     }
 }
 
@@ -70,9 +77,63 @@
  # GENERIC
 /*---------------------------------------*/
 
+body{
+    display: flex;
+    font-family: Inter, Arial,'Courier New', Courier, monospace;
+    background-color: var(--background-1);
+    color: var(--color-text);
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
 /*---------------------------------------/*
  # ELEMENTS
 /*---------------------------------------*/
+
+main{
+    align-self: center;
+    margin: var(--space-10);
+}
+
+nav {
+    height: 15dvh;
+    width: 100dvw;
+    position: relative;
+    background-color: transparent;
+    z-index: 1;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a{
+    z-index: 10;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: 0.2s;
+    font-size: var(--font-size-m);
+    padding: var(--space-4) var(--space-3);
+    border: var(--color-border) 1px solid;
+    margin: 0 var(--space-1);
+    border-radius: var(--radius-2);
+}
+
+nav a:hover{
+    color: var(--color-brand);
+    transition: 0.2s;
+    background-color: #00000078;
+}
+
+nav canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    pointer-events: none;
+}
 
 /*---------------------------------------/*
  # OBJECTS
@@ -81,7 +142,23 @@
 /*---------------------------------------/*
  # COMPONENTS
 /*---------------------------------------*/
+.c-nav-container{
+    width: fit-content;
+    padding: var(--space-6);
+    backdrop-filter: blur(0.4rem);
+}
 
+
+.c-example__container{
+    display: flex;
+}
+
+.c-example{
+    background-color: var(--background-2);
+    padding: var(--space-4);
+    margin: var(--space-4);
+
+}
 /*---------------------------------------/*
  # UTILITIES
 /*---------------------------------------*/
