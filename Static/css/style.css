@@ -1,0 +1,85 @@
+/*---------------------------------------/*
+ # SETTINGS
+/*---------------------------------------*/
+:root{
+    --color-gray-0: #ffffff;
+    --color-gray-1: #f7f7f7;
+    --color-gray-10: #1c1c1c;
+    --color-gray-2: #f2f2f2;
+    --color-gray-3: #e6e6e6;
+    --color-gray-4: #c6c6c6;
+    --color-gray-5: #aeaeae;
+    --color-gray-6: #959595;
+    --color-gray-7: #656565;
+    --color-gray-8: #4c4c4c;
+    --color-gray-9: #343434;
+
+    --color-brand-10: #0F0508;
+    --color-brand-20: #2C0E14;
+    --color-brand-30: #4A151c;
+    --color-brand-40: #691B20;
+    --color-brand-50: #8A1F1F;
+    --color-brand: #AD2A21;
+    --color-brand-60: #BF4A5D;
+    --color-brand-70: #D17598;
+    --color-brand-80: #E1A0C7;
+    --color-brand-90: #F0CDEA;
+    --color-brand-100: #FEFAFE;
+
+    /* whitespace */
+    --space-05: 0.25rem; /* 4px */
+    --space-1: 0.5rem; /* 8px */
+    --space-2: 0.625rem; /* 10px */
+    --space-3: 0.75rem; /* 12px */
+    --space-4: 1rem; /* 16px */
+    --space-5: 1.25rem; /* 20px */
+    --space-6: 1.5rem; /* 24px */
+    --space-7: 2rem; /* 32px */
+    --space-8: 2.5rem; /* 40px */
+    --space-9: 3rem; /* 48px */
+    --space-10: 3.5rem; /* 56px */
+
+    /* radius */
+    --radius-1: 0.25rem; /* 4px */
+    --radius-2: 0.375rem; /* 6px */
+    --radius-3: 0.5rem; /* 8px */
+
+    /* font sizes */
+    --font-size-meta: 0.625rem
+    --font-size-s: 0.75rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.5rem;
+
+    /* font weight */
+    --font-weight-n: 400;
+    --font-weight-b: 700;
+
+    @media (prefers-color-scheme: dark) {
+    }
+
+    @media (prefers-color-scheme: light) {
+        
+    }
+}
+
+
+/*---------------------------------------/*
+ # GENERIC
+/*---------------------------------------*/
+
+/*---------------------------------------/*
+ # ELEMENTS
+/*---------------------------------------*/
+
+/*---------------------------------------/*
+ # OBJECTS
+/*---------------------------------------*/
+
+/*---------------------------------------/*
+ # COMPONENTS
+/*---------------------------------------*/
+
+/*---------------------------------------/*
+ # UTILITIES
+/*---------------------------------------*/
+
