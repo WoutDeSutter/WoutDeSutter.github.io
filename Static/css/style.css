@@ -157,7 +157,12 @@ nav canvas{
     background-color: var(--background-2);
     padding: var(--space-4);
     margin: var(--space-4);
+    transition: 1s;
+}
 
+.c-example:hover{
+    transform: rotate3d(0,1,0,180deg);
+    transition: 1s;
 }
 /*---------------------------------------/*
  # UTILITIES
