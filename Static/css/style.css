@@ -60,7 +60,7 @@
         --color-border: var(--color-gray-8);
 
         --background-1: var(--color-gray-10);
-        --background-2: var(--color-gray-8);
+        --background-2: var(--color-gray-9);
 
     }
 
@@ -76,6 +76,10 @@
 /*---------------------------------------/*
  # GENERIC
 /*---------------------------------------*/
+
+html{
+    scroll-behavior: smooth;
+}
 
 body{
     display: flex;
@@ -151,34 +155,55 @@ nav canvas{
 
 .c-example__container{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .c-example{
-    background-color: var(--background-2);
+    perspective: 1000px;
     padding: var(--space-4);
     margin: var(--space-4);
     position: relative;
-    width: 100%;
-    height: 100%;
-    
-    transition: 1s;
-    aspect-ratio: 9/16;
+    width: fit-content;
+    height: fit-content;
+    transition: transform 1s;
+}
+
+.c-example:hover .c-example-inner{
+    transform: rotateY(180deg);
+}
+
+.c-example-inner{
+    width: 24rem;
+    height: 16rem;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
 }
 
 .c-example-front,.c-example-back{
     position: absolute;
+    padding: var(--space-3);
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: var(--radius-1);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+    
 }
 
-.c-example-front{}
+.c-example-front{
+    background: red;
+}
 
 .c-example-back{
-}
-
-.c-example:hover{
+    background-color: var(--background-2);
     transform: rotateY(180deg);
 }
 /*---------------------------------------/*
