@@ -157,13 +157,12 @@ nav canvas{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .c-example{
     perspective: 1000px;
-    padding: var(--space-4);
-    margin: var(--space-4);
+    margin: var(--space-4) 0;
     position: relative;
     width: fit-content;
     height: fit-content;
