@@ -58,6 +58,7 @@
     @media (prefers-color-scheme: dark) {
         --color-text: var(--color-brand-100);
         --color-border: var(--color-gray-8);
+        --color-hover: #00000078;
 
         --background-1: var(--color-gray-10);
         --background-2: var(--color-gray-9);
@@ -66,9 +67,11 @@
 
     @media (prefers-color-scheme: light) {
         --color-text: var(--color-gray-10);
-        --color-border: var(--color-gray-1)
+        --color-border: var(--color-gray-3);
+        --color-hover: #ffffff78 ;
 
-        --background-1: var(--color-gray-0);
+        --background-1: var(--color-gray-1);
+        --background-2: var(--color-gray-3);
     }
 }
 
@@ -79,6 +82,7 @@
 
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body{
@@ -101,32 +105,47 @@ main{
 }
 
 nav {
-    height: 15dvh;
-    width: 100dvw;
+    height: 20svh;
+    width: 100svw;
     position: relative;
-    background-color: transparent;
+    background: linear-gradient(to bottom, var(--background-1) 80%, transparent 70%);
     z-index: 1;   
     display: flex;
     align-items: center;
     justify-content: center;
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150%;
+        background: linear-gradient(to bottom, transparent 0%, var(--background-1) 100%);
+        pointer-events: none;
+    }
 }
 
 nav a{
     z-index: 10;
     text-decoration: none;
     color: var(--color-text);
-    transition: 0.2s;
+    transition: background-color 0.3s;
+    transition: color 0.3s;
     font-size: var(--font-size-m);
-    padding: var(--space-4) var(--space-3);
+    padding: var(--space-3) var(--space-4);
     border: var(--color-border) 1px solid;
     margin: 0 var(--space-1);
     border-radius: var(--radius-2);
+    backdrop-filter: blur(0.4rem);
+    background-color: transparent;
+    display: inline-block;
 }
 
 nav a:hover{
     color: var(--color-brand);
-    transition: 0.2s;
-    background-color: #00000078;
+    transition: 0.5s;
+    background-color: var(--color-hover);
+    box-shadow: 0 0 16px var(--color-brand);
 }
 
 nav canvas{
@@ -146,10 +165,28 @@ nav canvas{
 /*---------------------------------------/*
  # COMPONENTS
 /*---------------------------------------*/
+@media (max-width: 890px) {
+    .c-example__container{
+        justify-content: center !important;
+    }
+    
+}
+
+@media (max-width: 640px) {
+    .c-nav-container{
+        display: none !important;
+    }
+}
+
 .c-nav-container{
     width: fit-content;
     padding: var(--space-6);
-    backdrop-filter: blur(0.4rem);
+    /* backdrop-filter: blur(0.4rem); */
+    z-index: 10;
+}
+
+.c-menu-blocks{
+    margin: var(--space-8) 0;
 }
 
 
@@ -158,6 +195,7 @@ nav canvas{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: var(--space-2);
 }
 
 .c-example{
@@ -178,7 +216,7 @@ nav canvas{
     height: 16rem;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.6s;
+    transition: transform 0.85s;
 }
 
 .c-example-front,.c-example-back{
@@ -193,19 +231,88 @@ nav canvas{
     align-items: center;
     flex-direction: column;
     border-radius: var(--radius-1);
-    box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
-    
+    /* box-shadow: 0 0 16px rgba(255, 255, 255, 0.3); */
+    box-shadow: 0 0 16px var(--color-brand);
 }
 
 .c-example-front{
-    background: red;
+    background: var(--background-2);
 }
 
 .c-example-back{
     background-color: var(--background-2);
     transform: rotateY(180deg);
 }
+
+.c-input{
+    --pad: .75rem;
+    position: relative;
+    margin: var(--space-1) 0;
+}
+
+.c-input input,
+.c-input textarea{
+    padding: var(--pad);
+    border-radius: var(--radius-1);
+    background-color: var(--background-1);
+    border: 1px solid var(--color-border);
+    width: 20rem;
+    resize: vertical;
+    outline: none;
+    color: var(--color-text);
+}
+
+.c-message__send{
+    background-color: var(--background-2);
+    border: 1px var(--color-brand) solid;
+    border-radius: calc(var(--radius-3) * 2);
+    color: var(--color-text);
+    padding: var(--space-1) var(--space-2);
+}
+
+.c-input label{
+    position: absolute;
+    left: var(--pad);
+    top: var(--pad);
+    background: var(--background-1);
+    padding-inline: .3;
+    transition: transform 200ms;
+    transform-origin: left;
+    translate: -.3em;
+    pointer-events: none;
+}
+
+.c-input input::placeholder,
+.c-input textarea::placeholder{
+    opacity: 0;
+}
+
+.c-input input:focus + label,
+.c-input textarea:focus + label,
+.c-input input:not(:placeholder-shown) + label,
+.c-input textarea:not(:placeholder-shown) + label{
+    transform: translateY(calc(-50% - var(--pad))) scale(.8);
+    color: var(--color-brand);
+}
+
+.c-input input:-webkit-autofill
+.c-input input:-webkit-autofill:hover,
+.c-input input:-webkit-autofill:focus,
+.c-input input:-webkit-autofill:active,
+.c-input input:-webkit-autofill:valid {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: var(--color-text);
+    transition: background-color 10000000s ease-in-out 0s;
+}
+
+.c-input input:focus{
+    border: 1px solid var(--color-brand);
+}
+
 /*---------------------------------------/*
  # UTILITIES
 /*---------------------------------------*/
-
+.u-flex-dummy{
+    width: 24rem;
+    height: 0.1rem;
+}

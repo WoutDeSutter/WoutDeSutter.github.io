@@ -11,7 +11,7 @@ function resizeCanvas() {
 
 // Parameters voor driehoeken
 const triangleGrid = [];
-const triangleSize = 15;
+const triangleSize = 10;
 const triangleSpacing = 45;
 const animationSpeed = 0.019;
 const minSizeThreshold = 0.5;

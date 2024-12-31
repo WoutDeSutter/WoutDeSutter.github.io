@@ -13,6 +13,13 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
     <script src="Static/js/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        emailjs.init({
+            publicKey: "Ef_D5m-u3ReoMAspn",
+        });
+    </script>
 </head>
 
 <body>
@@ -41,7 +48,7 @@
                         </div>
                         <div class="c-example-back">
                             <h2>Functionele Webapp</h2>
-                            <p>Wilt u een webapp voor uw magazijn, klanten of werknemers?
+                            <p>Wilt u een webapp voor uw magazijn, klanten of werknemers?<br>
                                 Dit is de optie voor u!
                             </p>
                         </div>
@@ -55,10 +62,10 @@
                         </div>
                         <div class="c-example-back">
                             <h2>Bedrijf Website</h2>
-                            <p>Wilt u mensen informeren over uw bedrijf en wat jullie doen?
+                            <p>Wilt u mensen informeren over uw bedrijf en wat jullie doen?<br>
                                 Maak een website waar al uw info staat van u bedrijf samen met foto's en misschien wel
                                 een
-                                webshop of producten kaart!
+                                webshop of producten kaart!<br>
                                 U kunt altijd ook een agenda erin steken voor geslote dagen
                             </p>
                         </div>
@@ -72,7 +79,7 @@
                         </div>
                         <div class="c-example-back">
                             <h2>Webshop</h2>
-                            <p>Wilt u een website voor uw porduct te verkopen of aan te bieden?
+                            <p>Wilt u een website voor uw porduct te verkopen of aan te bieden?<br>
                                 We kunnen deze website aanpassen aan uw kleuren, logo en lettertype.
                             </p>
                         </div>
@@ -86,7 +93,7 @@
                         </div>
                         <div class="c-example-back">
                             <h2>Portfolio</h2>
-                            <p>Wilt u makelijk al uw ervaringen, skills en cv op 1 website.
+                            <p>Wilt u makelijk al uw ervaringen, skills en cv op 1 website.<br>
                                 Met deze websites kan u uw gehele CV op 1 website zetten, samen met de dingen die u al
                                 bereikt heeft!
                             </p>
@@ -101,7 +108,7 @@
                         </div>
                         <div class="c-example-back">
                             <h2>Blog</h2>
-                            <p>Wilt u mensen overtuigen of informeren over alles dat u doet?
+                            <p>Wilt u mensen overtuigen of informeren over alles dat u doet?<br>
                                 Maak een blog aan waar je foto's, video's en uw ervaring kunt posten zodat andere
                                 hiervan
                                 kunnen
@@ -118,12 +125,14 @@
                         </div>
                         <div class="c-example-back">
                             <h2>Event Website</h2>
-                            <p>Eener welk event u heeft, wij kunnen er een website voor maken.
+                            <p>Eener welk event u heeft, wij kunnen er een website voor maken.<br>
                                 Op het einde van uw event kunnen we zelfs de foto's erop zetten!
                             </p>
                         </div>
                     </div>
                 </article>
+                <article class="u-flex-dummy"></article>
+                <article class="u-flex-dummy"></article>
             </div>
         </div>
         <div class="c-menu-blocks" id="h-my-creations">
@@ -134,16 +143,26 @@
         </div>
         <div class="c-menu-blocks" id="h-contact">
             <h1>Contact</h1>
-            <div>
-                <label for="name">Naam</label>
-                <input id="name" type="text">
-                <label for="lastname">Achternaam</label>
-                <input id="lastname" type="text">
-                <label for="email">E-mail</label>
-                <input id="email" type="email">
-                <label for="message">Bericht</label>
-                <textarea id="message"></textarea>
-            </div>
+            <form id="contact-form">
+                <div class="c-input">
+                    <input id="email" required type="email" placeholder="email" name="user_email">
+                    <label for="email">E-mail</label>
+                </div>
+                <div class="c-input">
+                    <input id="name" required type="text" placeholder="Name" name="user_name">
+                    <label for="name">Naam</label>
+                </div>
+
+                <div class="c-input">
+                    <input id="lastname" type="text" placeholder="Achternaam" name="user_lastname">
+                    <label for="lastname">Achternaam</label>
+                </div>
+                <div class="c-input">
+                    <textarea required placeholder="text" id="message" name="message"></textarea>
+                    <label for="message">Bericht</label>
+                </div>
+                <input class="c-message__send" type="submit" value="Verzend">
+            </form>
         </div>
     </main>
     <footer></footer>
