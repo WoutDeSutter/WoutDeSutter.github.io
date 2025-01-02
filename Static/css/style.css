@@ -303,7 +303,7 @@ nav canvas {
 
 .c-input input:focus,
 .c-input textarea:focus,
-.c-message__send {
+.c-message__send:focus {
   border: 1px solid var(--color-brand);
 }
 
