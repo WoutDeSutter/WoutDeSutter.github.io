@@ -97,6 +97,7 @@ html {
 }
 
 body {
+  width: 100svw;
   display: flex;
   font-family: Inter, Arial, 'Courier New', Courier, monospace;
   background-color: var(--background-1);
