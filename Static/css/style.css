@@ -185,16 +185,42 @@ nav canvas {
 /*---------------------------------------/*
  # COMPONENTS
 /*---------------------------------------*/
-@media (max-width: 890px) {
+@media (min-width: 426px) {
   .c-example__container {
-    justify-content: center !important;
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 24rem));
+    /* grid-template-columns: repeat(auto-fill, minmax(18rem, 18rem)); */
+    justify-content: space-between;
+  }
+
+  .c-example-inner {
+    width: 24rem; 
+    height: 16rem;
+    /* width: 18rem;
+    height: 12rem; */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.85s;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 425px) {
   .c-nav-container {
     display: none !important;
   }
+
+  .c-example__container {
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 18rem));
+    justify-content: center;
+  }
+
+  .c-example-inner {
+    width: 18rem;
+    height: 12rem;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.85s;
+  }
+
 }
 
 .c-nav-container {
@@ -207,13 +233,6 @@ nav canvas {
 .c-menu-blocks {
   width: 100%;
   margin: var(--space-10) auto;
-}
-
-.c-example__container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(24rem, 24rem));
-  gap: var(--space-3);
-  justify-content: space-between;
 }
 
 .c-example {
@@ -229,12 +248,9 @@ nav canvas {
   transform: rotateY(180deg);
 }
 
-.c-example-inner {
-  width: 24rem;
-  height: 16rem;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.85s;
+.c-example__container {
+  display: grid;
+  gap: var(--space-3);
 }
 
 .c-example-front,
@@ -293,7 +309,6 @@ nav canvas {
   border: 1px solid var(--color-border);
   width: 20rem;
   resize: vertical;
-  min-height: 5rem;
   outline: none;
   color: var(--color-text);
 }
@@ -350,6 +365,10 @@ nav canvas {
 .c-input input:hover,
 .c-input textarea:hover {
   box-shadow: 0 0 8px var(--color-brand);
+}
+
+.c-input textarea {
+  min-height: 6rem;
 }
 
 /*---------------------------------------/*
