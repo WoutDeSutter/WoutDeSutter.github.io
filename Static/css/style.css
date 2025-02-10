@@ -272,6 +272,7 @@ nav canvas {
 
 .c-example-front {
   background: var(--background-2);
+  /* background: linear-gradient(to right bottom,var(--color-brand-10), var(--color-brand-50)); */
 }
 
 .c-example-back {
@@ -289,6 +290,7 @@ nav canvas {
   padding: var(--space-05) var(--space-1);
   bottom: var(--space-3);
   transition: 0.25s;
+  text-decoration: none;
   &:hover {
     cursor: pointer;
     color: var(--color-brand);
